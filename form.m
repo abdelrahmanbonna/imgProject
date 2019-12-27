@@ -1,6 +1,8 @@
 function varargout = form(varargin)
 % Made By Abdelrahman Bonna
 % GitHub Repository : https://github.com/abdelrahmanbonna/imgProject
+% abdelrahmanbonna/imgProject is licensed under the Creative Commons Zero v1.0 Universal
+
 % FORM MATLAB code for form.fig
 %      FORM, by itself, creates a new FORM or raises the existing
 %      singleton*.
@@ -125,7 +127,7 @@ I = rgb2gray(img);
 axes(handles.axes1);
 imagesc(IND);
 colormap(map);
-zoom(4);
+%zoom(2);
 
 % --- Executes on button press in pushbutton7.
 function pushbutton7_Callback(hObject, eventdata, handles)
@@ -137,7 +139,7 @@ global img;
 axes(handles.axes1);
 imagesc(IND);
 colormap(map);
-zoom(4);
+%zoom(2);
 
 % Made By Abdelrahman Bonna
 % --- Executes on button press in pushbutton8.
@@ -389,7 +391,8 @@ function pushbutton25_Callback(hObject, eventdata, handles)
 % eventdata  reserved - to be defined in a future version of MATLAB
 % handles    structure with handles and user data (see GUIDATA)
 IM=getimage(handles.axes1);
-[filename, foldername] = uiputfile('output.png');
+filter={'*.png';'*.jpg';'*.*'};
+[filename, foldername] = uiputfile(filter);
 complete_name = fullfile(foldername, filename);
 imwrite(IM, complete_name);
 
